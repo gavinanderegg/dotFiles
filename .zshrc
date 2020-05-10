@@ -24,3 +24,5 @@ fi
 
 export PATH="/usr/local/opt/python/libexec/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 
+autoload -U select-word-style
+select-word-style bash
