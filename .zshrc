@@ -22,7 +22,11 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
-export PATH="/usr/local/opt/python/libexec/bin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/opt/ruby/bin:$PATH"
+
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$PATH:$(ruby -r rubygems -e 'puts Gem.default_dir')/bin"
+fi
 
 autoload -U select-word-style
 select-word-style bash
