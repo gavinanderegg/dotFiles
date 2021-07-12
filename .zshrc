@@ -19,7 +19,8 @@ export DJANGO_COLORS='light'
 UNAME_MACHINE="$(uname -m)"
 
 if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-    PATH="/opt/homebrew/bin:$PATH"
+    # M1
+    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
     PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 
     if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
@@ -27,18 +28,16 @@ if [[ "$UNAME_MACHINE" == "arm64" ]]; then
         export WORKON_HOME=$HOME/.virtualenvs
         source /opt/homebrew/bin/virtualenvwrapper.sh
     fi
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 else
-    PATH="/usr/local/opt/python/libexec/bin:/usr/local/opt/ruby/bin:$PATH"
+    # Intel / Rosetta
 
-    if which ruby >/dev/null && which gem >/dev/null; then
-        PATH="$PATH:$(ruby -r rubygems -e 'puts Gem.default_dir')/bin"
-    fi
-
-    if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-        export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python/libexec/bin/python
-        export WORKON_HOME=$HOME/.virtualenvs
-        source /usr/local/bin/virtualenvwrapper.sh
-    fi
+    export NVM_DIR="$HOME/.nvm_intel"
+    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
 autoload -U select-word-style
