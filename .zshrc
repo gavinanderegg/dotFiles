@@ -1,4 +1,12 @@
-PROMPT=$'%F{green}[%~]%B%F{yellow}❯%b %F{grey}'
+# Colours - https://github.com/gawin/bash-colors-256
+PROMPT=$'%F{090}[%~]%B%F{228}❯%b %F{grey}%K'
+RPROMPT="%K{black}%F{240}[%T]%K"
+
+TMOUT=1
+
+TRAPALRM() {
+    zle reset-prompt
+}
 
 export LSCOLORS='gxfxcxdxbxegedabagacad'
 alias ls='ls -GFh'
@@ -22,22 +30,16 @@ if [[ "$UNAME_MACHINE" == "arm64" ]]; then
     # M1
     PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
     PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
+    PATH="/opt/homebrew/opt/php@7.4/bin:$PATH:/opt/homebrew/opt/php@7.4/sbin:$PATH"
+    PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
 
     if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
         export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/opt/python@3.9/libexec/bin/python
         export WORKON_HOME=$HOME/.virtualenvs
         source /opt/homebrew/bin/virtualenvwrapper.sh
     fi
-
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 else
     # Intel / Rosetta
-
-    export NVM_DIR="$HOME/.nvm_intel"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 
 autoload -U select-word-style
