@@ -1,6 +1,6 @@
 # Colours - https://github.com/gawin/bash-colors-256
-PROMPT=$'%F{090}[%~]%B%F{228}❯%b %F{grey}%K'
-RPROMPT="%K{black}%F{240}[%T]%K"
+PROMPT=$'%F{022}[%~]%B%F{yellow}❯%b %F{grey}'
+RPROMPT="%F{240}[%T]%F"
 
 TMOUT=1
 
