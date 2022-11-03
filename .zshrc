@@ -2,7 +2,7 @@
 PROMPT=$'%F{022}[%~]%B%F{yellow}❯%b %F{grey}'
 RPROMPT="%F{240}[%T]%F"
 
-TMOUT=1
+# TMOUT=1 # - set for always updating time
 
 TRAPALRM() {
     zle reset-prompt
