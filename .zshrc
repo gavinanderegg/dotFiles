@@ -31,7 +31,7 @@ if [[ "$UNAME_MACHINE" == "arm64" ]]; then
     PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
     PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"
     PATH="/opt/homebrew/opt/php@8.0/bin:/opt/homebrew/opt/php@8.0/sbin:$PATH"
-    PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
+    PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
     PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
     if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
