@@ -24,23 +24,16 @@ alias git-count='git rev-list --all --count'
 
 export DJANGO_COLORS='light'
 
-UNAME_MACHINE="$(uname -m)"
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
+PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
+PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
-if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-    # M1
-    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-    PATH="/opt/homebrew/opt/python@3.10/libexec/bin:$PATH"
-    PATH="/opt/homebrew/opt/php@8.0/bin:/opt/homebrew/opt/php@8.0/sbin:$PATH"
-    PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH"
-    PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
-    if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
-        export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/opt/python@3.9/libexec/bin/python
-        export WORKON_HOME=$HOME/.virtualenvs
-        source /opt/homebrew/bin/virtualenvwrapper.sh
-    fi
-else
-    # Intel / Rosetta
+if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
+    export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/opt/python@3.9/libexec/bin/python
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
 
 autoload -U select-word-style
