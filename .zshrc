@@ -24,6 +24,8 @@ alias git-count='git rev-list --all --count'
 
 alias bridge='socat TCP-LISTEN:8000,bind=127.0.0.1,fork TCP:192.168.64.2:8000'
 
+alias venv='source .venv/bin/activate'
+
 export DJANGO_COLORS='light'
 
 PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
