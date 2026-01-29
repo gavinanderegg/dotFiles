@@ -28,12 +28,12 @@ alias venv='source .venv/bin/activate'
 
 export DJANGO_COLORS='light'
 
-PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
 PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
